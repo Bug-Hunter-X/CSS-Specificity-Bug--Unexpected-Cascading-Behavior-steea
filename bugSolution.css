@@ -1,0 +1,20 @@
+To fix this, it's essential to understand and adjust selector specificity. A common solution is to reorder the CSS rules or rewrite the selectors. Here's the corrected CSS:
+
+```css
+.container {
+  width: 200px;
+  background-color: lightblue;
+}
+
+.inner {
+  width: 100px;
+  background-color: yellow; /* This will be overridden */
+}
+
+.container .inner {
+  width: 150px;
+  background-color: lightgreen;
+}
+```
+
+This solution ensures that the style with higher specificity is always applied.  In general, it's always better to have the more specific style appear later in the cascade or to rewrite your selectors completely for improved readability and maintainability.
