@@ -1,0 +1,25 @@
+The following CSS code snippet demonstrates an uncommon bug related to the specificity of CSS selectors and the cascading order:
+
+```css
+.container {
+  width: 200px;
+  background-color: lightblue;
+}
+
+.container .inner {
+  width: 150px;
+  background-color: lightgreen; 
+}
+
+.inner {
+  width: 100px; 
+  background-color: yellow;
+}
+
+/* This style is the problem */
+.container .inner, .inner {
+  background-color: lightpink;
+}
+```
+
+The unexpected behavior occurs because the last selector `'.container .inner, .inner'` has higher specificity than `.container .inner` which then overrides  `background-color: lightgreen`.  Although seemingly logical, this shows that the more specific selector does not always take precedence.
